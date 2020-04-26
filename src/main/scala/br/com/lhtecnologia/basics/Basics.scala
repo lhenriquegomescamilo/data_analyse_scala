@@ -5,7 +5,12 @@ import org.apache.spark.sql.types.{IntegerType, StringType, StructField, StructT
 
 object Basics {
   def main(args: Array[String]): Unit = {
-    implicit val spark: SparkSession = SparkSession.builder().master("local").appName("BasicsScala").getOrCreate()
+
+    implicit val spark: SparkSession = SparkSession.builder()
+      .master("local")
+      .appName("BasicsScala")
+      .getOrCreate()
+
     val data = loadData("src/data/bank-additional-full.csv")
 
     val schema = new StructType(Array(
